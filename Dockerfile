@@ -3,3 +3,4 @@ WORKDIR ./
 COPY ./requirement.txt ./requirement.txt
 RUN pip install -r requirement.txt
 COPY ./multiple_page_micro_service.py ./multiple_page_micro_service.py
+CMD ["python3","./multiple_page_micro_service.py"]
