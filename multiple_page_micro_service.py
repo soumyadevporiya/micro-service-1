@@ -24,12 +24,13 @@ def hello_name(name):
 # K8 Pod Details
 @app.route('/hello/pods')
 def get_pod_details():
-    config.load_kube_config()
+    config.load_incluster_config()
     v1 = kubernetes.client.CoreV1Api()
-    ret = v1.list_pod_for_all_namespaces(watch=False)
-    details = " "
-    for i in ret.items:
-        details = " " + i.status.pod_ip+ " " + i.metadata.namespace + " " + i.metadata.name + "\n"
+    ret = v1.list_node()
+    #ret = v1.list_pod_for_all_namespaces(watch=False)
+    details = " " + ret
+    #for i in ret.items:
+        #details = " " + i.status.pod_ip+ " " + i.metadata.namespace + " " + i.metadata.name + "\n"
 
     return jsonify({"message":"POD Details ", "Information: ": details})
 
