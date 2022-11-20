@@ -24,7 +24,7 @@ def hello_name(name):
 # K8 Pod Details
 @app.route('/hello/pods')
 def get_pod_details():
-    config.load_incluster_config()
+    config.load_kube_config()
     v1 = kubernetes.client.CoreV1Api()
     ret = v1.list_pod_for_all_namespaces(watch=False)
     details = " "
