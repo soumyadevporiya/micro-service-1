@@ -16,4 +16,4 @@ spec:
         - name: webapp1
           image: gcr.io/my-3rd-project-363814/sc_micro_service_5003:latest
           ports:
-          - containerPort: 5003
+          - containerPort: 60
