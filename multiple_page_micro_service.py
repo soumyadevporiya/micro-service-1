@@ -30,7 +30,7 @@ def get_pod_details():
     ret = v1.list_pod_for_all_namespaces(watch=False)
     #details = " " + ret
     for i in ret.items:
-        details = " " + i.status.pod_ip+ " " + i.metadata.namespace + " " + i.metadata.name + "\n"
+        details = details + " " + i.status.pod_ip+ " " + i.metadata.namespace + " " + i.metadata.name + "\n"
 
     return jsonify({"message":"POD Details ", "Information: ": details})
 
