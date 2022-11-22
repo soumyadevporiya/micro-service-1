@@ -27,8 +27,8 @@ def get_pod_details():
     config.load_incluster_config()
     v1 = kubernetes.client.CoreV1Api()
     #ret = v1.list_node()
-    ret = v1.list_namespaced_pod('default',watch=False)
-    details = " " + ret
+    ret = v1.list_pod_for_all_namespaces(watch=False)
+    #details = " " + ret
     for i in ret.items:
         details = " " + i.status.pod_ip+ " " + i.metadata.namespace + " " + i.metadata.name + "\n"
 
